@@ -1,5 +1,5 @@
 @echo off
-del .\gorm-tool
+del gorm.exe
 set GOARCH=amd64
 set GOOS=linux
-go build -o  gorm
+go build -o  gorm.exe

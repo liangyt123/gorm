@@ -8,22 +8,6 @@ gorm 是一组数据库操作命令行工具。
 
 `git clone https://github.com/liangyt123/gorm`
 
-同时你需要安装如下依赖:
-
-* github.com/go-xorm/xorm
-
-* Mysql: [github.com/go-sql-driver/mysql](https://github.com/go-sql-driver/mysql)
-
-* MyMysql: [github.com/ziutek/mymysql/godrv](https://github.com/ziutek/mymysql/godrv)
-
-* Postgres: [github.com/lib/pq](https://github.com/lib/pq)
-
-* SQLite: [github.com/mattn/go-sqlite3](https://github.com/mattn/go-sqlite3) 
-
-* MSSQL: [github.com/denisenkom/go-mssqldb](https://github.com/denisenkom/go-mssqldb)
-
-** 对于sqlite3的支持，你需要自己进行编译 `go build -tags sqlite3` 因为sqlite3需要cgo的支持。
-
 ## 命令列表
 
 有如下可用的命令：
@@ -52,13 +36,13 @@ sqlite:
 `gorm reverse sqite3 test.db templates/gogorm`
 
 mysql:
-`xorm reverse mysql root:@/xorm_test?charset=utf8 templates/goxorm`
+`gorm reverse mysql 'root:123456@tcp(127.0.0.1:3306)/gorm_test'?charset=utf8 templates/gogorm`
 
 mymysql:
-`xorm reverse mymysql xorm_test2/root/ templates/goxorm`
+`gorm reverse mymysql gorm_test2/root/ templates/gogorm`
 
 postgres:
-`xorm reverse postgres "dbname=xorm_test sslmode=disable" templates/goxorm`
+`gorm reverse postgres "dbname=gorm_test sslmode=disable" templates/gogorm`
 
 之后将会生成代码 generated go files in `./model` directory
 
@@ -78,18 +62,18 @@ genJson=1
 
 Shell command provides a tool to operate database. For example, you can create table, alter table, insert data, delete data and etc.
 
-`xorm shell sqlite3 test.db` will connect to the sqlite3 database and you can type `help` to list all the shell commands.
+`gorm shell sqlite3 test.db` will connect to the sqlite3 database and you can type `help` to list all the shell commands.
 
 ## Dump
 
 Dump command provides a tool to dump all database structs and data as SQL to your standard output.
 
-`xorm dump sqlite3 test.db` could dump sqlite3 database test.db to standard output. If you want to save to file, just
-type `xorm dump sqlite3 test.db > test.sql`.
+`gorm dump sqlite3 test.db` could dump sqlite3 database test.db to standard output. If you want to save to file, just
+type `gorm dump sqlite3 test.db > test.sql`.
 
 ## Source
 
-`xorm source sqlite3 test.db < test.sql` will execute sql file on the test.db.
+`gorm source sqlite3 test.db < test.sql` will execute sql file on the test.db.
 
 ## Driver
 

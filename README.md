@@ -9,21 +9,6 @@ gorm tools is a set of  tools for database operation.
 
 `git clone https://github.com/liangyt123/gorm`
 
-and you should install the depends below:
-
-* github.com/go-xorm/xorm
-
-* Mysql: [github.com/go-sql-driver/mysql](https://github.com/go-sql-driver/mysql)
-
-* MyMysql: [github.com/ziutek/mymysql/godrv](https://github.com/ziutek/mymysql/godrv)
-
-* Postgres: [github.com/lib/pq](https://github.com/lib/pq)
-
-* SQLite: [github.com/mattn/go-sqlite3](https://github.com/mattn/go-sqlite3) 
-
-* MSSQL: [github.com/denisenkom/go-mssqldb](https://github.com/denisenkom/go-mssqldb)
-
-** For sqlite support, you need build via `go build -tags sqlite3` because of this driver ask cgo.
 
 ## Commands
 
@@ -51,7 +36,7 @@ sqlite:
 `gorm reverse sqite3 test.db templates/gogorm`
 
 mysql:
-`gorm reverse mysql root:@/gorm_test?charset=utf8 templates/gogorm`
+`gorm reverse mysql 'root:123456@tcp(127.0.0.1:3306)/gorm_test'?charset=utf8 templates/gogorm`
 
 mymysql:
 `gorm reverse mymysql gorm_test2/root/ templates/gogorm`
