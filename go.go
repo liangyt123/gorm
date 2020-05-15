@@ -15,7 +15,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/go-xorm/core"
+	"xorm.io/core"
 )
 
 var (
@@ -204,6 +204,7 @@ func typestring(col *core.Column) string {
 
 func tag(table *core.Table, col *core.Column) string {
 	isNameId := (mapper.Table2Obj(col.Name) == "Id")
+
 	isIdPk := isNameId && typestring(col) == "int64"
 
 	var res []string

@@ -16,9 +16,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/go-xorm/core"
-	"github.com/go-xorm/xorm"
+	"github.com/liangyt123/gorm/xorm"
 	"github.com/lunny/log"
+	"xorm.io/core"
 
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
@@ -295,10 +295,11 @@ func runReverse(cmd *Command, args []string) {
 					return err
 				}
 				var source string
+
 				if langTmpl.Formater != nil {
 					source, err = langTmpl.Formater(string(tplcontent))
 					if err != nil {
-						log.Errorf("%v-%v", err, string(tplcontent))
+						log.Errorf("%v----%v", err, string(tplcontent))
 						return err
 					}
 				} else {
